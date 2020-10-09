@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>LedgerBook Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>LedgerBook List</h1>
+    <a href="new">Create New LedgerBook</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Ledger ID</th>
+                <th>Issue Date</th>
+                <th>Serial No</th>
+                <th>Kunde</th>
+                <th>Budget</th>
+                <th>Submit Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ledgerbook : ${listLedgerBooks}">
+            	<td th:text="${ledgerbook.id}">Ledger ID</td>
+                <td th:text="${ledgerbook.issuedate}">Issue Date</td>
+                <td th:text="${ledgerbook.serialno}">Serial No</td>
+                <td th:text="${ledgerbook.kunde}">Kunde</td>
+                <td th:text="${ledgerbook.budget}">Budget</td>
+                <td th:text="${ledgerbook.submitdate}">Submit Date</td>
+                <td th:text="${ledgerbook.status}">Status</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${ledgerbook.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${ledgerbook.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New LedgerBook</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Create New LedgerBook</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${ledgerbook}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Issue Date:</td>
+					<td><input type="text" th:field="*{issuedate}" /></td>
+				</tr>
+				<tr>
+					<td>Serial No:</td>
+					<td><input type="text" th:field="*{serialno}" /></td>
+				</tr>
+				<tr>
+					<td>Kunde:</td>
+					<td><input type="text" th:field="*{kunde}" /></td>
+				</tr>
+				<tr>
+					<td>Budget:</td>
+					<td><input type="text" th:field="*{budget}" /></td>
+				</tr>		
+				<tr>
+					<td>Submit Date:</td>
+					<td><input type="text" th:field="*{submitdate}" /></td>
+				</tr>
+				<tr>
+					<td>Status:</td>
+					<td><input type="text" th:field="*{status}" /></td>
+				</tr>						
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
