@@ -1,5 +1,6 @@
 package net.crowdcode;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,17 @@ public class LedgerBookController {
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<LedgerBook> listLedgerBooks = service.listAll();
+		
+		/*for(int i=0;i<listLedgerBooks.size();i++) {
+			listLedgerBooks.get(i).getIssuedate();
+			
+			String pattern = "dd.MM.-dd";
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+			String date = simpleDateFormat.format(new Date());
+			System.out.println(date);
+		}
+		*/
 		model.addAttribute("listLedgerBooks", listLedgerBooks);
 		
 		return "index";
